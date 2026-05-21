@@ -1,0 +1,6 @@
+{
+  "name": "EduManage Academic Portal",
+  "description": "Functional academic portal containing a student profile detail view, assignments evaluation panel, and student dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
