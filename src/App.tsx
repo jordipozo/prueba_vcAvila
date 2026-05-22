@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import DashboardView from './components/DashboardView';
 import StudentProfileView from './components/StudentProfileView';
@@ -8,17 +8,11 @@ import { Student, Assignment } from './types';
 
 export default function App() {
   const [activeView, setActiveView] = useState<'dashboard' | 'students' | 'evaluation'>('students');
-  const [students, setStudents] = useState<Student[]>([]);
+  const [students, setStudents] = useState<Student[]>(() => getStudents());
 
   // Selected contexts for evaluation panel
   const [activeEvaluationStudentId, setActiveEvaluationStudentId] = useState<string | null>(null);
   const [activeEvaluationAssignmentId, setActiveEvaluationAssignmentId] = useState<string | null>(null);
-
-  // Initialize data on mount
-  useEffect(() => {
-    const data = getStudents();
-    setStudents(data);
-  }, []);
 
   // Update professor notes for a student
   const handleUpdateProfessorNotes = (studentId: string, notes: string) => {
@@ -131,7 +125,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#f8f9ff]">
+    <div className="flex h-screen overflow-hidden bg-surface-page">
       {/* SideNavBar (Shared navigation bar) */}
       <Sidebar 
         activeView={activeView} 

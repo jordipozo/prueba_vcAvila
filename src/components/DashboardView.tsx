@@ -1,15 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Student, Assignment } from '../types';
+import { Student } from '../types';
 import { 
-  Bell, 
-  HelpCircle, 
   Search, 
   Clock, 
   UploadCloud, 
   BookOpen, 
   CheckCircle,
-  FileText,
-  Calendar,
   Sparkles
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -135,16 +131,16 @@ export default function DashboardView({
   return (
     <div className="flex-1 flex flex-col min-w-0">
       {/* Top Header */}
-      <header className="bg-white border-b border-[#c5c5d3] flex justify-between items-center w-full px-10 h-16 sticky top-0 z-40">
+      <header className="bg-white border-b border-border flex justify-between items-center w-full px-10 h-16 sticky top-0 z-40">
         <div className="flex items-center gap-6 flex-1">
           <div className="relative w-full max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#444651] w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted w-5 h-5" />
             <input 
               type="text" 
               placeholder="Search courses, grades, or materials..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#eff4ff] border-none rounded-full py-1.5 pl-10 pr-4 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#00236f]"
+              className="w-full bg-surface-light border-none rounded-full py-1.5 pl-10 pr-4 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
         </div>
@@ -152,11 +148,11 @@ export default function DashboardView({
         <div className="flex items-center gap-6">
           {/* Student Account Selector */}
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-[#444651]">View Student:</span>
+            <span className="text-xs font-bold text-text-muted">View Student:</span>
             <select
               value={activeStudentId}
               onChange={(e) => setActiveStudentId(e.target.value)}
-              className="bg-white border border-[#c5c5d3] rounded px-2.5 py-1 text-xs font-bold text-[#1E3A8A]"
+              className="bg-white border border-border rounded px-2.5 py-1 text-xs font-bold text-primary-light"
             >
               {students.map(s => (
                 <option key={s.id} value={s.id}>{s.name} ({s.id})</option>
@@ -164,13 +160,13 @@ export default function DashboardView({
             </select>
           </div>
 
-          <div className="h-8 w-px bg-[#c5c5d3]"></div>
+          <div className="h-8 w-px bg-border"></div>
 
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-[#1e3a8a] hidden md:block">{activeStudent?.name}</span>
+            <span className="text-xs font-bold text-primary-light hidden md:block">{activeStudent?.name}</span>
             <img 
               alt="User profile photo" 
-              className="w-8 h-8 rounded-full object-cover border border-[#c5c5d3]" 
+              className="w-8 h-8 rounded-full object-cover border border-border" 
               src={activeStudent?.photoUrl} 
             />
           </div>
@@ -184,7 +180,7 @@ export default function DashboardView({
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           
           {/* Welcome Card Box */}
-          <div className="md:col-span-2 relative overflow-hidden bg-[#00236f] p-8 rounded-xl text-white shadow-sm group">
+          <div className="md:col-span-2 relative overflow-hidden bg-primary p-8 rounded-xl text-white shadow-sm group">
             <div className="relative z-10 h-full flex flex-col justify-between">
               <div>
                 <h1 className="text-3xl font-bold tracking-tight mb-2">Welcome back, {activeStudent?.name}! 👋</h1>
@@ -195,7 +191,7 @@ export default function DashboardView({
               <div className="mt-6 flex gap-3">
                 <button 
                   onClick={() => alert("Calendar scheduler is locked to Spring 2024 syllabus.")}
-                  className="bg-[#14B8A6] hover:bg-[#006b5f] text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer outline-none shadow"
+                  className="bg-accent hover:bg-accent-dark text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer outline-none shadow"
                 >
                   View Calendar
                 </button>
@@ -212,23 +208,23 @@ export default function DashboardView({
             </div>
             
             {/* Background design ornaments */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#14B8A6]/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
             <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 blur-2xl"></div>
           </div>
 
           {/* KPI Overall average circular progress bar */}
-          <div className="bg-white border border-[#c5c5d3] p-8 rounded-xl shadow-sm flex flex-col items-center justify-center text-center">
-            <span className="text-[10px] font-bold text-[#444651] uppercase tracking-wider mb-2">Current GPA / Average</span>
+          <div className="bg-white border border-border p-8 rounded-xl shadow-sm flex flex-col items-center justify-center text-center">
+            <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider mb-2">Current GPA / Average</span>
             
             <div className="relative w-28 h-28 flex items-center justify-center mb-4">
               <svg className="w-full h-full transform -rotate-90">
-                <circle className="text-[#eff4ff]" cx="56" cy="56" fill="transparent" r="48" stroke="currentColor" strokeWidth="8"></circle>
-                <circle className="text-[#14B8A6]" cx="56" cy="56" fill="transparent" r="48" stroke="currentColor" stroke-dasharray="301.6" stroke-dashoffset={activeStudent?.id === '#STU-92841' ? "30.1" : "55.2"} strokeWidth="8" strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s ease-out' }}></circle>
+                <circle className="text-surface-light" cx="56" cy="56" fill="transparent" r="48" stroke="currentColor" strokeWidth="8"></circle>
+                <circle className="text-accent" cx="56" cy="56" fill="transparent" r="48" stroke="currentColor" stroke-dasharray="301.6" stroke-dashoffset={activeStudent?.id === '#STU-92841' ? "30.1" : "55.2"} strokeWidth="8" strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s ease-out' }}></circle>
               </svg>
-              <span className="absolute font-bold text-3xl text-[#00236f]">{activeStudent?.averageGrade}</span>
+              <span className="absolute font-bold text-3xl text-primary">{activeStudent?.averageGrade}</span>
             </div>
             
-            <p className="text-xs text-[#14B8A6] font-extrabold">{activeStudent?.rankBadge}</p>
+            <p className="text-xs text-accent font-extrabold">{activeStudent?.rankBadge}</p>
           </div>
 
         </section>
@@ -240,10 +236,10 @@ export default function DashboardView({
           <div className="lg:col-span-8 space-y-6">
             
             {/* Upcoming Pending Assignments */}
-            <section className="bg-white border border-[#c5c5d3] rounded-xl overflow-hidden shadow-sm">
-              <div className="p-5 border-b border-[#c5c5d3] flex justify-between items-center bg-[#eff4ff]/30">
-                <h3 className="text-sm font-bold text-[#00236f]">Upcoming Assignments</h3>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#444651] bg-[#eff4ff] px-2 py-0.5 rounded">
+            <section className="bg-white border border-border rounded-xl overflow-hidden shadow-sm">
+              <div className="p-5 border-b border-border flex justify-between items-center bg-surface-light/30">
+                <h3 className="text-sm font-bold text-primary">Upcoming Assignments</h3>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-text-muted bg-surface-light px-2 py-0.5 rounded">
                   {pendingAssignments.length} Pending
                 </span>
               </div>
@@ -251,14 +247,14 @@ export default function DashboardView({
               <div className="divide-y divide-[#eff4ff]">
                 {pendingAssignments.length > 0 ? (
                   pendingAssignments.map((assignment) => (
-                    <div key={assignment.id} className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#f8f9ff] transition-colors">
+                    <div key={assignment.id} className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-surface-page transition-colors">
                       <div className="flex gap-4">
-                        <div className="w-12 h-12 bg-teal-50 text-[#14B8A6] rounded-lg flex items-center justify-center shrink-0">
+                        <div className="w-12 h-12 bg-teal-50 text-accent rounded-lg flex items-center justify-center shrink-0">
                           <BookOpen className="w-6 h-6" />
                         </div>
                         <div>
-                          <h4 className="text-xs font-bold text-[#0b1c30]">{assignment.name}</h4>
-                          <p className="text-[11px] text-[#444651] font-semibold mt-0.5">{assignment.documentTitle || 'Solution Submission required'}</p>
+                          <h4 className="text-xs font-bold text-primary-dark">{assignment.name}</h4>
+                          <p className="text-[11px] text-text-muted font-semibold mt-0.5">{assignment.documentTitle || 'Solution Submission required'}</p>
                           
                           <div className="flex items-center gap-1.5 mt-2 text-red-600 font-bold text-[10px]">
                             <Clock className="w-3.5 h-3.5" />
@@ -269,14 +265,14 @@ export default function DashboardView({
                       
                       <button 
                         onClick={() => handleOpenSubmitModal(assignment.id)}
-                        className="bg-[#1E3A8A] text-white hover:bg-[#00236f] text-xs font-bold px-5 py-2.5 rounded-lg active:scale-95 duration-200 transition-all cursor-pointer outline-none"
+                        className="bg-primary-light text-white hover:bg-primary text-xs font-bold px-5 py-2.5 rounded-lg active:scale-95 duration-200 transition-all cursor-pointer outline-none"
                       >
                         Submit
                       </button>
                     </div>
                   ))
                 ) : (
-                  <div className="p-8 text-center text-xs text-[#444651] font-semibold">
+                  <div className="p-8 text-center text-xs text-text-muted font-semibold">
                     🎉 Excellent! All upcoming coursework has been successfully uploaded and grading is pending.
                   </div>
                 )}
@@ -284,9 +280,9 @@ export default function DashboardView({
             </section>
 
             {/* Recently Graded Review */}
-            <section className="bg-white border border-[#c5c5d3] rounded-xl overflow-hidden shadow-sm">
-              <div className="p-5 border-b border-[#c5c5d3]">
-                <h3 className="text-sm font-bold text-[#00236f]">Recent Grading Releases</h3>
+            <section className="bg-white border border-border rounded-xl overflow-hidden shadow-sm">
+              <div className="p-5 border-b border-border">
+                <h3 className="text-sm font-bold text-primary">Recent Grading Releases</h3>
               </div>
               
               <div className="p-5 space-y-4">
@@ -294,34 +290,34 @@ export default function DashboardView({
                   gradedAssignments.map((assignment, idx) => (
                     <div 
                       key={assignment.id} 
-                      className={`group relative bg-[#eff4ff]/30 rounded-lg p-5 border-l-4 ${
-                        idx % 2 === 0 ? 'border-[#14B8A6]' : 'border-[#1E3A8A]'
+                      className={`group relative bg-surface-light/30 rounded-lg p-5 border-l-4 ${
+                        idx % 2 === 0 ? 'border-accent' : 'border-primary-light'
                       } hover:shadow-md transition-all duration-200`}
                     >
                       <div className="flex justify-between items-start mb-3">
                         <div>
-                          <span className="inline-block px-2.5 py-0.5 rounded bg-[#eff4ff] text-[#1E3A8A] text-[9px] font-bold uppercase tracking-wider mb-1">
+                          <span className="inline-block px-2.5 py-0.5 rounded bg-surface-light text-primary-light text-[9px] font-bold uppercase tracking-wider mb-1">
                             Graded
                           </span>
-                          <h4 className="text-xs font-bold text-[#0b1c30]">{assignment.name}</h4>
-                          <p className="text-[10px] font-bold text-[#444651]">{assignment.documentTitle}</p>
+                          <h4 className="text-xs font-bold text-primary-dark">{assignment.name}</h4>
+                          <p className="text-[10px] font-bold text-text-muted">{assignment.documentTitle}</p>
                         </div>
                         
                         <div className="text-right">
-                          <span className="text-2xl font-bold text-[#00236f]">{assignment.score}%</span>
-                          <span className="block text-[10px] font-bold text-[#14B8A6]">Letter: {assignment.score && assignment.score >= 90 ? 'A' : 'B+'}</span>
+                          <span className="text-2xl font-bold text-primary">{assignment.score}%</span>
+                          <span className="block text-[10px] font-bold text-accent">Letter: {assignment.score && assignment.score >= 90 ? 'A' : 'B+'}</span>
                         </div>
                       </div>
 
                       {assignment.feedback && (
-                        <div className="bg-white/70 p-3 rounded border border-gray-100 text-xs text-[#444651] italic leading-relaxed">
+                        <div className="bg-white/70 p-3 rounded border border-gray-100 text-xs text-text-muted italic leading-relaxed">
                           "{assignment.feedback}"
                         </div>
                       )}
                     </div>
                   ))
                 ) : (
-                  <div className="p-4 text-center text-xs text-[#444651]">
+                  <div className="p-4 text-center text-xs text-text-muted">
                     No graded assignments released in this view yet. Call the Evaluation helper!
                   </div>
                 )}
@@ -334,15 +330,15 @@ export default function DashboardView({
           <div className="lg:col-span-4 space-y-6">
             
             {/* Quick Submission drag and drop card area */}
-            <section className="bg-white border border-[#c5c5d3] rounded-xl p-5 shadow-sm space-y-4">
-              <h3 className="text-xs font-bold text-[#00236f] uppercase tracking-wider">Quick Submission Portal</h3>
+            <section className="bg-white border border-border rounded-xl p-5 shadow-sm space-y-4">
+              <h3 className="text-xs font-bold text-primary uppercase tracking-wider">Quick Submission Portal</h3>
               
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-[#444651] block uppercase">Select Course Assignment</label>
+                <label className="text-[10px] font-bold text-text-muted block uppercase">Select Course Assignment</label>
                 <select 
                   value={chosenAssignmentId}
                   onChange={(e) => setChosenAssignmentId(e.target.value)}
-                  className="w-full bg-[#eff4ff] border border-[#c5c5d3] rounded-lg text-xs font-bold px-3 py-2 text-[#0b1c30] outline-none"
+                  className="w-full bg-surface-light border border-border rounded-lg text-xs font-bold px-3 py-2 text-primary-dark outline-none"
                 >
                   <option value="">-- Choose Assignment --</option>
                   {pendingAssignments.map(a => (
@@ -358,8 +354,8 @@ export default function DashboardView({
                 onDrop={handleDropSimulation}
                 className={`border-2 border-dashed rounded-xl p-6 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors duration-200 group text-center relative ${
                   isDragging 
-                    ? 'border-[#00236f] bg-[#eff4ff]' 
-                    : 'border-[#c5c5d3] hover:border-[#00236f] hover:bg-[#f8f9ff]'
+                    ? 'border-primary bg-surface-light' 
+                    : 'border-border hover:border-primary hover:bg-surface-page'
                 }`}
               >
                 <input 
@@ -373,18 +369,18 @@ export default function DashboardView({
                 {/* Simulated file selected indicator */}
                 {submissionDocumentTitle ? (
                   <>
-                    <CheckCircle className="w-8 h-8 text-[#14B8A6] animate-bounce" />
+                    <CheckCircle className="w-8 h-8 text-accent animate-bounce" />
                     <div>
-                      <p className="text-xs font-bold text-[#0b1c30]">{submissionDocumentTitle}.docx</p>
-                      <p className="text-[10px] text-[#444651] mt-0.5 font-bold">Successfully loaded file draft!</p>
+                      <p className="text-xs font-bold text-primary-dark">{submissionDocumentTitle}.docx</p>
+                      <p className="text-[10px] text-text-muted mt-0.5 font-bold">Successfully loaded file draft!</p>
                     </div>
                   </>
                 ) : (
                   <>
-                    <UploadCloud onClick={() => document.getElementById('dash-file-picker')?.click()} className="w-10 h-10 text-[#757682] group-hover:text-[#00236f] transition-colors" />
+                    <UploadCloud onClick={() => document.getElementById('dash-file-picker')?.click()} className="w-10 h-10 text-text-dim group-hover:text-primary transition-colors" />
                     <div onClick={() => document.getElementById('dash-file-picker')?.click()}>
-                      <p className="text-xs font-bold text-[#0b1c30]">Click to upload or drag &amp; drop</p>
-                      <span className="text-[10px] text-[#444651] font-semibold mt-0.5 block">PDF, DOCX (Max 25MB)</span>
+                      <p className="text-xs font-bold text-primary-dark">Click to upload or drag &amp; drop</p>
+                      <span className="text-[10px] text-text-muted font-semibold mt-0.5 block">PDF, DOCX (Max 25MB)</span>
                     </div>
                   </>
                 )}
@@ -392,36 +388,36 @@ export default function DashboardView({
 
               <button 
                 onClick={handleQuickSubmit}
-                className="w-full bg-[#14B8A6] hover:bg-[#006b5f] text-white text-xs font-bold py-2.5 rounded-lg transition-transform active:scale-95 duration-200 outline-none shadow cursor-pointer"
+                className="w-full bg-accent hover:bg-accent-dark text-white text-xs font-bold py-2.5 rounded-lg transition-transform active:scale-95 duration-200 outline-none shadow cursor-pointer"
               >
                 Upload and Submit
               </button>
             </section>
 
             {/* Academic encouragement tip */}
-            <section className="relative overflow-hidden bg-[#eff4ff] p-5 rounded-xl border border-[#dce9ff]">
-              <h4 className="text-xs font-bold text-[#00236f] flex items-center gap-1.5 mb-2">
-                <Sparkles className="w-4 h-4 text-[#14B8A6]" />
+            <section className="relative overflow-hidden bg-surface-light p-5 rounded-xl border border-surface-light-alt">
+              <h4 className="text-xs font-bold text-primary flex items-center gap-1.5 mb-2">
+                <Sparkles className="w-4 h-4 text-accent" />
                 <span>Academic Tip 💡</span>
               </h4>
-              <p className="text-xs text-[#0b1c30] leading-relaxed italic pr-6 relative z-10">
+              <p className="text-xs text-primary-dark leading-relaxed italic pr-6 relative z-10">
                 "The beautiful thing about learning is that no one can take it away from you."
               </p>
-              <p className="text-[10px] text-[#444651] font-bold text-right mt-1.5">— B.B. King</p>
+              <p className="text-[10px] text-text-muted font-bold text-right mt-1.5">— B.B. King</p>
             </section>
 
             {/* Course progress bars list */}
-            <section className="bg-white border border-[#c5c5d3] rounded-xl p-5 shadow-sm space-y-4">
-              <h3 className="text-xs font-bold text-[#00236f] uppercase tracking-wider">Course Progress</h3>
+            <section className="bg-white border border-border rounded-xl p-5 shadow-sm space-y-4">
+              <h3 className="text-xs font-bold text-primary uppercase tracking-wider">Course Progress</h3>
               <div className="space-y-4">
                 {activeStudent?.courseProgress?.map((course) => (
                   <div key={course.name}>
-                    <div className="flex justify-between text-[11px] font-bold text-[#444651] mb-1.5">
+                    <div className="flex justify-between text-[11px] font-bold text-text-muted mb-1.5">
                       <span>{course.name}</span>
                       <span>{course.progress}%</span>
                     </div>
-                    <div className="h-2 w-full bg-[#eff4ff] rounded-full overflow-hidden">
-                      <div className="h-full bg-[#14B8A6]" style={{ width: `${course.progress}%` }}></div>
+                    <div className="h-2 w-full bg-surface-light rounded-full overflow-hidden">
+                      <div className="h-full bg-accent" style={{ width: `${course.progress}%` }}></div>
                     </div>
                   </div>
                 ))}
@@ -442,50 +438,50 @@ export default function DashboardView({
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden border border-[#c5c5d3]"
+              className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden border border-border"
             >
               <form onSubmit={handleQuickSubmit}>
-                <div className="p-4 bg-[#00236f] text-white flex justify-between items-center">
+                <div className="p-4 bg-primary text-white flex justify-between items-center">
                   <h3 className="font-bold text-sm">Submit New Assignment</h3>
                   <span className="text-xs opacity-75 font-mono">{activeStudent?.id}</span>
                 </div>
                 
                 <div className="p-6 space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#444651] mb-1">Document Title</label>
+                    <label className="block text-xs font-bold text-text-muted mb-1">Document Title</label>
                     <input 
                       type="text" 
                       required
                       value={submissionDocumentTitle}
                       onChange={(e) => setSubmissionDocumentTitle(e.target.value)}
-                      className="w-full border border-[#757682] rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#00236f]"
+                      className="w-full border border-text-dim rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="e.g. My Homework Chapter 1"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#444651] mb-1">Written Contents &amp; Code Solution</label>
+                    <label className="block text-xs font-bold text-text-muted mb-1">Written Contents &amp; Code Solution</label>
                     <textarea 
                       required
                       value={submissionDocumentText}
                       onChange={(e) => setSubmissionDocumentText(e.target.value)}
-                      className="w-full border border-[#757682] rounded-lg p-3 text-xs h-32 focus:outline-none focus:ring-2 focus:ring-[#00236f]"
+                      className="w-full border border-text-dim rounded-lg p-3 text-xs h-32 focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="Type your thesis, solutions or essays here..."
                     />
                   </div>
                 </div>
 
-                <div className="p-4 bg-[#eff4ff] flex justify-end gap-2 border-t border-[#c5c5d3]">
+                <div className="p-4 bg-surface-light flex justify-end gap-2 border-t border-border">
                   <button 
                     type="button"
                     onClick={() => setIsSubmitModalOpen(false)}
-                    className="px-4 py-1.5 border border-[#757682] text-[#444651] rounded text-xs font-semibold hover:bg-white transition-all cursor-pointer"
+                    className="px-4 py-1.5 border border-text-dim text-text-muted rounded text-xs font-semibold hover:bg-white transition-all cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button 
                     type="submit"
-                    className="px-4 py-1.5 bg-[#14B8A6] text-white rounded text-xs font-bold hover:bg-[#006b5f] transition-all cursor-pointer"
+                    className="px-4 py-1.5 bg-accent text-white rounded text-xs font-bold hover:bg-accent-dark transition-all cursor-pointer"
                   >
                     Submit Assignment Solution
                   </button>
