@@ -1,0 +1,6 @@
+git add README.md && git commit -m "docs: correct spelling of 'éxito' in README"
+
+git add -p src/ && git commit -m "fix: allow .io domains in email validation function"
+
+# --- Alternativa en un solo commit si se prefiere (no recomendado porque mezcla concerns) ---
+# git add README.md src/ && git commit -m "chore: fix typo in README and update email validation to support .io domains"

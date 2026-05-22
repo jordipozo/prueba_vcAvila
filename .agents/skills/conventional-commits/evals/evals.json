@@ -1,0 +1,23 @@
+{
+  "skill_name": "conventional-commits",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "He estado debugueando un error en el login. Resulta que cuando el token JWT expiraba, la app se quedaba colgada en una pantalla en blanco en vez de redirigir al login. Ya lo arreglé — añadí un catch en el interceptor de axios que detecta el 401 y redirige. Prepara el commit.",
+      "expected_output": "A single commit message with type 'fix', optional scope '(auth)', describing the JWT expiration redirect fix",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "He tocado varias cosas y no sé si separarlo. Por un lado corregí un typo en el README (faltaba una tilde en 'éxito'), y por otro lado cambie la función de validación de emails porque no aceptaba dominios .io. ¿Puedes revisar y preparar los commits que creas convenientes?",
+      "expected_output": "Two separate commit messages: one 'docs' for the README typo fix and one 'fix' for the email validation",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Acabo de terminar el nuevo sistema de notificaciones por email. Añadí un servicio que envía emails con Nodemailer, una cola de trabajos con Bull, y un par de tests unitarios. También actualicé la documentación de configuración en el README. Prepara el commit.",
+      "expected_output": "A single commit or separate commits. At minimum the main commit should be type 'feat' for the notification system. Tests and docs could be separate or included.",
+      "files": []
+    }
+  ]
+}

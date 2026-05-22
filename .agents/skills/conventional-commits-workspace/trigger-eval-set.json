@@ -1,0 +1,22 @@
+[
+  {"query": "prepara un commit con los cambios que he hecho hoy en el módulo de usuarios. He añadido validación de email y corregido un bug en el login.", "should_trigger": true},
+  {"query": "he arreglado el bug de la paginación que se veía en producción, prepara el commit con conventional commits porfa", "should_trigger": true},
+  {"query": "commit this: added error handling for the file upload endpoint and updated the corresponding tests", "should_trigger": true},
+  {"query": "prepara el commit de los cambios que he hecho en auth.service.ts, es un fix para el refresh token", "should_trigger": true},
+  {"query": "ok he terminado la feature de exportar a PDF. He tocado el servicio, el controlador y los tests. Haz el commit separando si tiene sentido.", "should_trigger": true},
+  {"query": "tengo varios cambios mezclados: un refactor del módulo de facturación y un fix para el cálculo de IVA. Ayúdame a separarlos en commits coherentes.", "should_trigger": true},
+  {"query": "could you write a conventional commit message for the work I just did on the API rate limiting?", "should_trigger": true},
+  {"query": "mira los cambios que tengo sin staging y prepárame un commit bien estructurado siguiendo conventional commits", "should_trigger": true},
+  {"query": "haz commit de los cambios en src/api/ y src/tests/, son para añadir soporte de WebSockets", "should_trigger": true},
+  {"query": "he estado refactorizando el frontend, separé el componente de tabla en varios más pequeños. Prepara el commit explicando bien los cambios.", "should_trigger": true},
+  {"query": "revísame el código que acabo de escribir antes de hacer push, hay algún problema?", "should_trigger": false},
+  {"query": "cómo puedo deshacer el último commit? hice un commit con cambios que no tocaban", "should_trigger": false},
+  {"query": "explícame qué es Conventional Commits y cómo se usa en proyectos profesionales", "should_trigger": false},
+  {"query": "muéstrame el historial de commits de las últimas dos semanas", "should_trigger": false},
+  {"query": "quiero configurar husky y lint-staged para que se ejecute el linter antes de cada commit", "should_trigger": false},
+  {"query": "actualiza el CHANGELOG.md basado en los mensajes de commit que hay desde la última release", "should_trigger": false},
+  {"query": "haz un squash de los últimos 3 commits en uno solo, pero manten el mensaje bien escrito", "should_trigger": false},
+  {"query": "el commit hook de pre-commit está fallando, puedes mirar qué pasa?", "should_trigger": false},
+  {"query": "cómo puedo dividir un commit grande en varios commits más pequeños?", "should_trigger": false},
+  {"query": "genera una release nueva a partir de los commits de la rama main desde la v1.2.0", "should_trigger": false}
+]

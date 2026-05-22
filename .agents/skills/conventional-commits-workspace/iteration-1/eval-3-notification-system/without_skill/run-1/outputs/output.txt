@@ -1,0 +1,6 @@
+git add -A && git commit -m "feat(email): add notification system with Nodemailer and Bull job queue
+
+- Add email service using Nodemailer for sending notifications
+- Implement Bull job queue for async email processing
+- Add unit tests for email service and queue workers
+- Update README with email configuration documentation"

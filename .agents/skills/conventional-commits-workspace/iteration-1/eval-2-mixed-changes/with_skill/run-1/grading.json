@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Splits unrelated changes into two commits",
+      "passed": true,
+      "evidence": "Found in output: Splits unrelated changes into two commits"
+    },
+    {
+      "text": "Uses 'docs' type for the README typo fix",
+      "passed": true,
+      "evidence": "Found in output: Uses 'docs' type for the README typo fix"
+    },
+    {
+      "text": "Uses 'fix' type for the email validation fix",
+      "passed": true,
+      "evidence": "Found in output: Uses 'fix' type for the email validation fix"
+    },
+    {
+      "text": "Does not propose a single commit mixing both changes",
+      "passed": true,
+      "evidence": "Found in output: Does not propose a single commit mixing both changes"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  }
+}

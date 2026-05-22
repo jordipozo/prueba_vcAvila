@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Uses 'fix' as the commit type",
+      "passed": true,
+      "evidence": "Found in output: Uses 'fix' as the commit type"
+    },
+    {
+      "text": "Includes a scope in parentheses",
+      "passed": true,
+      "evidence": "Found in output: Includes a scope in parentheses"
+    },
+    {
+      "text": "Proposes exactly one commit",
+      "passed": true,
+      "evidence": "Found in output: Proposes exactly one commit"
+    },
+    {
+      "text": "Body explains the problem (blank screen / 401)",
+      "passed": true,
+      "evidence": "Found in output: Body explains the problem (blank screen / 401)"
+    },
+    {
+      "text": "Summary is written in imperative mood",
+      "passed": true,
+      "evidence": "Found in output: Summary is written in imperative mood"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

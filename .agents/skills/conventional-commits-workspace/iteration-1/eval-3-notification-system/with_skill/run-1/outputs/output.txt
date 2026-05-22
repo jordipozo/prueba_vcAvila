@@ -1,0 +1,40 @@
+## Changes reviewed
+
+The following changes were described (no actual unstaged changes in the repo):
+
+- **Email notification service** using Nodemailer — new feature
+- **Bull job queue** for async email processing — part of the same feature
+- **Unit tests** for the notification system — testing
+- **README update** with configuration docs for the new feature — documentation
+
+## Decision: split into multiple commits
+
+These changes serve three different purposes: adding a feature, testing it, and documenting it. Per the Conventional Commits spec, each has its own type (`feat`, `test`, `docs`). Splitting keeps the history clean and makes changelogs/reverts easier.
+
+If you prefer a single commit, replace the three commands below with:
+
+```
+git add -A && git commit -m "feat(notifications): add email notification system" -m "Introduce an email sending service powered by Nodemailer and a Bull job queue for asynchronous delivery. Includes unit tests and configuration documentation."
+```
+
+---
+
+### Commit 1 — the feature itself
+
+```
+git add <files-for-notification-service-and-queue> && git commit -m "feat(notifications): add email sending service and Bull job queue" -m "Introduce an email notification module that uses Nodemailer to send
+templates and a Bull queue to process deliveries asynchronously, avoiding
+blocking the HTTP response cycle."
+```
+
+### Commit 2 — unit tests
+
+```
+git add <test-files> && git commit -m "test(notifications): add unit tests for email service and queue"
+```
+
+### Commit 3 — documentation
+
+```
+git add README.md && git commit -m "docs(readme): add configuration guide for email notification system"
+```

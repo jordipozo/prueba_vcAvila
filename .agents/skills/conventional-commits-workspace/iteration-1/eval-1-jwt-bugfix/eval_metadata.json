@@ -1,0 +1,32 @@
+{
+  "eval_id": 1,
+  "eval_name": "jwt-bugfix",
+  "prompt": "He estado debugueando un error en el login. Resulta que cuando el token JWT expiraba, la app se quedaba colgada en una pantalla en blanco en vez de redirigir al login. Ya lo arreglé — añadí un catch en el interceptor de axios que detecta el 401 y redirige. Prepara el commit.",
+  "assertions": [
+    {
+      "name": "uses_fix_type",
+      "text": "Uses 'fix' as the commit type",
+      "check": "regex"
+    },
+    {
+      "name": "includes_scope",
+      "text": "Includes a scope in parentheses",
+      "check": "regex"
+    },
+    {
+      "name": "single_commit",
+      "text": "Proposes exactly one commit",
+      "check": "count"
+    },
+    {
+      "name": "body_explains_why",
+      "text": "Body explains the problem (blank screen / 401)",
+      "check": "regex"
+    },
+    {
+      "name": "summary_imperative",
+      "text": "Summary is written in imperative mood",
+      "check": "regex"
+    }
+  ]
+}

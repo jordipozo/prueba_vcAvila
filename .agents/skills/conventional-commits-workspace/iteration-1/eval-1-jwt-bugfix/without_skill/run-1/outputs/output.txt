@@ -1,0 +1,7 @@
+git add src/lib/axios.ts  # or wherever the axios interceptor lives
+git commit -m "fix(auth): redirect to login on JWT token expiration
+
+When the JWT token expired, the axios response interceptor did not
+catch 401 errors, causing the app to hang on a blank screen. Added
+error handling in the interceptor that detects 401 status codes and
+redirects the user to the login page."

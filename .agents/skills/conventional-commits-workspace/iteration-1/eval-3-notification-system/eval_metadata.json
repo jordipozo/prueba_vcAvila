@@ -1,0 +1,32 @@
+{
+  "eval_id": 3,
+  "eval_name": "notification-system",
+  "prompt": "Acabo de terminar el nuevo sistema de notificaciones por email. Añadí un servicio que envía emails con Nodemailer, una cola de trabajos con Bull, y un par de tests unitarios. También actualicé la documentación de configuración en el README. Prepara el commit.",
+  "assertions": [
+    {
+      "name": "uses_feat_type",
+      "text": "Uses 'feat' as the commit type",
+      "check": "regex"
+    },
+    {
+      "name": "mentions_nodemailer",
+      "text": "Mentions Nodemailer in the body",
+      "check": "regex"
+    },
+    {
+      "name": "mentions_tests",
+      "text": "Mentions tests in some commit",
+      "check": "regex"
+    },
+    {
+      "name": "mentions_bull_queue",
+      "text": "Mentions Bull job queue",
+      "check": "regex"
+    },
+    {
+      "name": "valid_cc_format",
+      "text": "Follows Conventional Commits format: type(scope): summary",
+      "check": "regex"
+    }
+  ]
+}

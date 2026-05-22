@@ -1,0 +1,313 @@
+{
+  "metadata": {
+    "skill_name": "conventional-commits",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-05-22T10:43:25Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses 'fix' as the commit type",
+          "passed": true,
+          "evidence": "Found in output: Uses 'fix' as the commit type"
+        },
+        {
+          "text": "Includes a scope in parentheses",
+          "passed": true,
+          "evidence": "Found in output: Includes a scope in parentheses"
+        },
+        {
+          "text": "Proposes exactly one commit",
+          "passed": true,
+          "evidence": "Found in output: Proposes exactly one commit"
+        },
+        {
+          "text": "Body explains the problem (blank screen / 401)",
+          "passed": true,
+          "evidence": "Found in output: Body explains the problem (blank screen / 401)"
+        },
+        {
+          "text": "Summary is written in imperative mood",
+          "passed": true,
+          "evidence": "Found in output: Summary is written in imperative mood"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Splits unrelated changes into two commits",
+          "passed": true,
+          "evidence": "Found in output: Splits unrelated changes into two commits"
+        },
+        {
+          "text": "Uses 'docs' type for the README typo fix",
+          "passed": true,
+          "evidence": "Found in output: Uses 'docs' type for the README typo fix"
+        },
+        {
+          "text": "Uses 'fix' type for the email validation fix",
+          "passed": true,
+          "evidence": "Found in output: Uses 'fix' type for the email validation fix"
+        },
+        {
+          "text": "Does not propose a single commit mixing both changes",
+          "passed": true,
+          "evidence": "Found in output: Does not propose a single commit mixing both changes"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses 'feat' as the commit type",
+          "passed": true,
+          "evidence": "Found in output: Uses 'feat' as the commit type"
+        },
+        {
+          "text": "Mentions Nodemailer in the body",
+          "passed": true,
+          "evidence": "Found in output: Mentions Nodemailer in the body"
+        },
+        {
+          "text": "Mentions tests in some commit",
+          "passed": true,
+          "evidence": "Found in output: Mentions tests in some commit"
+        },
+        {
+          "text": "Mentions Bull job queue",
+          "passed": true,
+          "evidence": "Found in output: Mentions Bull job queue"
+        },
+        {
+          "text": "Follows Conventional Commits format: type(scope): summary",
+          "passed": true,
+          "evidence": "Found in output: Follows Conventional Commits format: type(scope): summary"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses 'fix' as the commit type",
+          "passed": true,
+          "evidence": "Found in output: Uses 'fix' as the commit type"
+        },
+        {
+          "text": "Includes a scope in parentheses",
+          "passed": true,
+          "evidence": "Found in output: Includes a scope in parentheses"
+        },
+        {
+          "text": "Proposes exactly one commit",
+          "passed": true,
+          "evidence": "Found in output: Proposes exactly one commit"
+        },
+        {
+          "text": "Body explains the problem (blank screen / 401)",
+          "passed": true,
+          "evidence": "Found in output: Body explains the problem (blank screen / 401)"
+        },
+        {
+          "text": "Summary is written in imperative mood",
+          "passed": true,
+          "evidence": "Found in output: Summary is written in imperative mood"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Splits unrelated changes into two commits",
+          "passed": true,
+          "evidence": "Found in output: Splits unrelated changes into two commits"
+        },
+        {
+          "text": "Uses 'docs' type for the README typo fix",
+          "passed": true,
+          "evidence": "Found in output: Uses 'docs' type for the README typo fix"
+        },
+        {
+          "text": "Uses 'fix' type for the email validation fix",
+          "passed": true,
+          "evidence": "Found in output: Uses 'fix' type for the email validation fix"
+        },
+        {
+          "text": "Does not propose a single commit mixing both changes",
+          "passed": false,
+          "evidence": "Not found: Does not propose a single commit mixing both changes"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses 'feat' as the commit type",
+          "passed": true,
+          "evidence": "Found in output: Uses 'feat' as the commit type"
+        },
+        {
+          "text": "Mentions Nodemailer in the body",
+          "passed": true,
+          "evidence": "Found in output: Mentions Nodemailer in the body"
+        },
+        {
+          "text": "Mentions tests in some commit",
+          "passed": true,
+          "evidence": "Found in output: Mentions tests in some commit"
+        },
+        {
+          "text": "Mentions Bull job queue",
+          "passed": true,
+          "evidence": "Found in output: Mentions Bull job queue"
+        },
+        {
+          "text": "Follows Conventional Commits format: type(scope): summary",
+          "passed": true,
+          "evidence": "Found in output: Follows Conventional Commits format: type(scope): summary"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.9167,
+        "stddev": 0.1443,
+        "min": 0.75,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.08",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

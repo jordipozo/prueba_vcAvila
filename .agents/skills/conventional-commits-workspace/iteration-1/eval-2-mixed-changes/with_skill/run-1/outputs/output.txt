@@ -1,0 +1,3 @@
+git add README.md && git commit -m "docs: fix typo in README ('exito' -> 'éxito')"
+
+git add src/ && git commit -m "fix: update email validation regex to accept .io domains"

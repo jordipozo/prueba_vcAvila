@@ -1,0 +1,565 @@
+{
+  "exit_reason": "max_iterations (2)",
+  "original_description": "Prepare well-structured git commits following the Conventional Commits specification. Use this skill when the user asks to prepare a commit, make a commit, do a commit, write a commit message, or anything similar about committing changes. It helps review unstaged changes, separate unrelated concerns into multiple commits, choose the right commit type, and write a clear, structured commit message.",
+  "best_description": "Prepare well-structured git commits following the Conventional Commits specification. Use this skill when the user asks to prepare a commit, make a commit, do a commit, write a commit message, or anything similar about committing changes. It helps review unstaged changes, separate unrelated concerns into multiple commits, choose the right commit type, and write a clear, structured commit message.",
+  "best_score": "4/8",
+  "best_train_score": "7/12",
+  "best_test_score": "4/8",
+  "final_description": "Use this skill when a user wants to commit their recent code changes \u2014 whether they say \"prepare a commit\", \"write a commit message\", \"help me commit this\", or simply describe what they just built, fixed, or refactored and need it committed. Especially relevant when the user explicitly mentions Conventional Commits or wants to follow that format (feat/fix/refactor/chore/docs/etc.). Also handles separating mixed changes into multiple focused commits. This skill analyzes the current diff, selects the right commit type and scope, and drafts a clear commit message explaining the changes.",
+  "iterations_run": 2,
+  "holdout": 0.4,
+  "train_size": 12,
+  "test_size": 8,
+  "history": [
+    {
+      "iteration": 1,
+      "description": "Prepare well-structured git commits following the Conventional Commits specification. Use this skill when the user asks to prepare a commit, make a commit, do a commit, write a commit message, or anything similar about committing changes. It helps review unstaged changes, separate unrelated concerns into multiple commits, choose the right commit type, and write a clear, structured commit message.",
+      "train_passed": 7,
+      "train_failed": 5,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "could you write a conventional commit message for the work I just did on the API rate limiting?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he estado refactorizando el frontend, separ\u00e9 el componente de tabla en varios m\u00e1s peque\u00f1os. Prepara el commit explicando bien los cambios.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "rev\u00edsame el c\u00f3digo que acabo de escribir antes de hacer push, hay alg\u00fan problema?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "tengo varios cambios mezclados: un refactor del m\u00f3dulo de facturaci\u00f3n y un fix para el c\u00e1lculo de IVA. Ay\u00fadame a separarlos en commits coherentes.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "ok he terminado la feature de exportar a PDF. He tocado el servicio, el controlador y los tests. Haz el commit separando si tiene sentido.",
+          "should_trigger": true,
+          "trigger_rate": 1.0,
+          "triggers": 1,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "prepara un commit con los cambios que he hecho hoy en el m\u00f3dulo de usuarios. He a\u00f1adido validaci\u00f3n de email y corregido un bug en el login.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he arreglado el bug de la paginaci\u00f3n que se ve\u00eda en producci\u00f3n, prepara el commit con conventional commits porfa",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "c\u00f3mo puedo deshacer el \u00faltimo commit? hice un commit con cambios que no tocaban",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "haz un squash de los \u00faltimos 3 commits en uno solo, pero manten el mensaje bien escrito",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "el commit hook de pre-commit est\u00e1 fallando, puedes mirar qu\u00e9 pasa?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "c\u00f3mo puedo dividir un commit grande en varios commits m\u00e1s peque\u00f1os?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "genera una release nueva a partir de los commits de la rama main desde la v1.2.0",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "mira los cambios que tengo sin staging y prep\u00e1rame un commit bien estructurado siguiendo conventional commits",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "prepara el commit de los cambios que he hecho en auth.service.ts, es un fix para el refresh token",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "commit this: added error handling for the file upload endpoint and updated the corresponding tests",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "haz commit de los cambios en src/api/ y src/tests/, son para a\u00f1adir soporte de WebSockets",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "mu\u00e9strame el historial de commits de las \u00faltimas dos semanas",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "actualiza el CHANGELOG.md basado en los mensajes de commit que hay desde la \u00faltima release",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "quiero configurar husky y lint-staged para que se ejecute el linter antes de cada commit",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "expl\u00edcame qu\u00e9 es Conventional Commits y c\u00f3mo se usa en proyectos profesionales",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        }
+      ],
+      "passed": 7,
+      "failed": 5,
+      "total": 12,
+      "results": [
+        {
+          "query": "could you write a conventional commit message for the work I just did on the API rate limiting?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he estado refactorizando el frontend, separ\u00e9 el componente de tabla en varios m\u00e1s peque\u00f1os. Prepara el commit explicando bien los cambios.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "rev\u00edsame el c\u00f3digo que acabo de escribir antes de hacer push, hay alg\u00fan problema?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "tengo varios cambios mezclados: un refactor del m\u00f3dulo de facturaci\u00f3n y un fix para el c\u00e1lculo de IVA. Ay\u00fadame a separarlos en commits coherentes.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "ok he terminado la feature de exportar a PDF. He tocado el servicio, el controlador y los tests. Haz el commit separando si tiene sentido.",
+          "should_trigger": true,
+          "trigger_rate": 1.0,
+          "triggers": 1,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "prepara un commit con los cambios que he hecho hoy en el m\u00f3dulo de usuarios. He a\u00f1adido validaci\u00f3n de email y corregido un bug en el login.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he arreglado el bug de la paginaci\u00f3n que se ve\u00eda en producci\u00f3n, prepara el commit con conventional commits porfa",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "c\u00f3mo puedo deshacer el \u00faltimo commit? hice un commit con cambios que no tocaban",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "haz un squash de los \u00faltimos 3 commits en uno solo, pero manten el mensaje bien escrito",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "el commit hook de pre-commit est\u00e1 fallando, puedes mirar qu\u00e9 pasa?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "c\u00f3mo puedo dividir un commit grande en varios commits m\u00e1s peque\u00f1os?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "genera una release nueva a partir de los commits de la rama main desde la v1.2.0",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "description": "Use this skill when a user wants to commit their recent code changes \u2014 whether they say \"prepare a commit\", \"write a commit message\", \"help me commit this\", or simply describe what they just built, fixed, or refactored and need it committed. Especially relevant when the user explicitly mentions Conventional Commits or wants to follow that format (feat/fix/refactor/chore/docs/etc.). Also handles separating mixed changes into multiple focused commits. This skill analyzes the current diff, selects the right commit type and scope, and drafts a clear commit message explaining the changes.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "prepara un commit con los cambios que he hecho hoy en el m\u00f3dulo de usuarios. He a\u00f1adido validaci\u00f3n de email y corregido un bug en el login.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "el commit hook de pre-commit est\u00e1 fallando, puedes mirar qu\u00e9 pasa?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "could you write a conventional commit message for the work I just did on the API rate limiting?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he estado refactorizando el frontend, separ\u00e9 el componente de tabla en varios m\u00e1s peque\u00f1os. Prepara el commit explicando bien los cambios.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he arreglado el bug de la paginaci\u00f3n que se ve\u00eda en producci\u00f3n, prepara el commit con conventional commits porfa",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "tengo varios cambios mezclados: un refactor del m\u00f3dulo de facturaci\u00f3n y un fix para el c\u00e1lculo de IVA. Ay\u00fadame a separarlos en commits coherentes.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "rev\u00edsame el c\u00f3digo que acabo de escribir antes de hacer push, hay alg\u00fan problema?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "c\u00f3mo puedo deshacer el \u00faltimo commit? hice un commit con cambios que no tocaban",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "ok he terminado la feature de exportar a PDF. He tocado el servicio, el controlador y los tests. Haz el commit separando si tiene sentido.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "genera una release nueva a partir de los commits de la rama main desde la v1.2.0",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "haz un squash de los \u00faltimos 3 commits en uno solo, pero manten el mensaje bien escrito",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "c\u00f3mo puedo dividir un commit grande en varios commits m\u00e1s peque\u00f1os?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "mira los cambios que tengo sin staging y prep\u00e1rame un commit bien estructurado siguiendo conventional commits",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "prepara el commit de los cambios que he hecho en auth.service.ts, es un fix para el refresh token",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "haz commit de los cambios en src/api/ y src/tests/, son para a\u00f1adir soporte de WebSockets",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "mu\u00e9strame el historial de commits de las \u00faltimas dos semanas",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "commit this: added error handling for the file upload endpoint and updated the corresponding tests",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "actualiza el CHANGELOG.md basado en los mensajes de commit que hay desde la \u00faltima release",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "quiero configurar husky y lint-staged para que se ejecute el linter antes de cada commit",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "expl\u00edcame qu\u00e9 es Conventional Commits y c\u00f3mo se usa en proyectos profesionales",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "prepara un commit con los cambios que he hecho hoy en el m\u00f3dulo de usuarios. He a\u00f1adido validaci\u00f3n de email y corregido un bug en el login.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "el commit hook de pre-commit est\u00e1 fallando, puedes mirar qu\u00e9 pasa?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "could you write a conventional commit message for the work I just did on the API rate limiting?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he estado refactorizando el frontend, separ\u00e9 el componente de tabla en varios m\u00e1s peque\u00f1os. Prepara el commit explicando bien los cambios.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "he arreglado el bug de la paginaci\u00f3n que se ve\u00eda en producci\u00f3n, prepara el commit con conventional commits porfa",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "tengo varios cambios mezclados: un refactor del m\u00f3dulo de facturaci\u00f3n y un fix para el c\u00e1lculo de IVA. Ay\u00fadame a separarlos en commits coherentes.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "rev\u00edsame el c\u00f3digo que acabo de escribir antes de hacer push, hay alg\u00fan problema?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "c\u00f3mo puedo deshacer el \u00faltimo commit? hice un commit con cambios que no tocaban",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "ok he terminado la feature de exportar a PDF. He tocado el servicio, el controlador y los tests. Haz el commit separando si tiene sentido.",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": false
+        },
+        {
+          "query": "genera una release nueva a partir de los commits de la rama main desde la v1.2.0",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "haz un squash de los \u00faltimos 3 commits en uno solo, pero manten el mensaje bien escrito",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        },
+        {
+          "query": "c\u00f3mo puedo dividir un commit grande en varios commits m\u00e1s peque\u00f1os?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 1,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

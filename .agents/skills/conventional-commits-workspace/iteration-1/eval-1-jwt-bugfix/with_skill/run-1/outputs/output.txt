@@ -1,0 +1,7 @@
+git add -A && git commit -m "fix(auth): redirect to login on expired JWT token" -m "When the JWT token expired, the axios response interceptor did not handle
+
+the 401 status, leaving the app stuck on a blank screen. Added a catch
+
+in the interceptor that detects 401 responses and redirects the user
+
+to the login page."

@@ -1,0 +1,27 @@
+{
+  "eval_id": 2,
+  "eval_name": "mixed-readme-and-validation",
+  "prompt": "He tocado varias cosas y no sé si separarlo. Por un lado corregí un typo en el README (faltaba una tilde en 'éxito'), y por otro lado cambie la función de validación de emails porque no aceptaba dominios .io. ¿Puedes revisar y preparar los commits que creas convenientes?",
+  "assertions": [
+    {
+      "name": "splits_into_two_commits",
+      "text": "Splits unrelated changes into two commits",
+      "check": "count"
+    },
+    {
+      "name": "uses_docs_for_readme",
+      "text": "Uses 'docs' type for the README typo fix",
+      "check": "regex"
+    },
+    {
+      "name": "uses_fix_for_validation",
+      "text": "Uses 'fix' type for the email validation fix",
+      "check": "regex"
+    },
+    {
+      "name": "does_not_mix_in_one_commit",
+      "text": "Does not propose a single commit mixing both changes",
+      "check": "regex"
+    }
+  ]
+}

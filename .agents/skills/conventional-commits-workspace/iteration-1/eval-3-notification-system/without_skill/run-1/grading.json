@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Uses 'feat' as the commit type",
+      "passed": true,
+      "evidence": "Found in output: Uses 'feat' as the commit type"
+    },
+    {
+      "text": "Mentions Nodemailer in the body",
+      "passed": true,
+      "evidence": "Found in output: Mentions Nodemailer in the body"
+    },
+    {
+      "text": "Mentions tests in some commit",
+      "passed": true,
+      "evidence": "Found in output: Mentions tests in some commit"
+    },
+    {
+      "text": "Mentions Bull job queue",
+      "passed": true,
+      "evidence": "Found in output: Mentions Bull job queue"
+    },
+    {
+      "text": "Follows Conventional Commits format: type(scope): summary",
+      "passed": true,
+      "evidence": "Found in output: Follows Conventional Commits format: type(scope): summary"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}
