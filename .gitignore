@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Temporary files
+eval_set.json
+feedback.json
